@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Months Information</title>
+    <style>
+        *,
+        *::after,
+        *::before {
+          padding: 0;
+          margin: 0;
+          box-sizing: border-box;
+        }
+
+        :root {
+          --dark-color: #000;
+          --light-pink: #FFD1DC; /* Light pink */
+          --pink: #FF69B4; /* Pink */
+        }
+
+        body {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+          background-color: var(--dark-color);
+          overflow: hidden;
+          perspective: 1000px;
+        }
+
+        .months-container {
+          border-radius: 10px;
+          padding: 20px;
+          background-color: #f5e1f4; /* Box color */
+          text-align: center;
+          position: relative; /* Position the container */
+          z-index: 1; /* Ensure it's above the night background */
+          margin-bottom: 50px; /* Add some bottom margin for better visibility */
+        }
+
+        .months-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          text-align: center;
+        }
+
+        .months-list li {
+          display: inline-block;
+          margin: 10px;
+          cursor: pointer;
+          color: var(--pink); /* Month text color */
+          font-weight: bold;
+          font-size: 18px;
+        }
+
+        .description {
+          display: none;
+          margin-top: 5px;
+          padding: 10px;
+          border-radius: 5px;
+          background-color: #ffffff; /* Description background color */
+          color: var(--pink); /* Description text color */
+          transition: opacity 0.5s ease-in-out, transform 0.15s ease-in-out; /* Smooth transition */
+          opacity: 0; /* Initially hidden */
+          transform-origin: top; /* Set origin for folding effect */
+          transform: perspective(600px) rotateX(-90deg); /* Rotate to hide initially */
+          z-index: 1; /* Ensure it's above the night background */
+        }
+
+        .night {
+          position: fixed;
+          left: 50%;
+          top: 0;
+          transform: translateX(-50%);
+          width: 100%;
+          height: 100%;
+          filter: blur(0.1vmin);
+          background-image: radial-gradient(ellipse at top, var(--pink), var(--light-pink)), linear-gradient(180deg, var(--pink), var(--light-pink)); /* Gradient from pink to light pink with ellipse at top */
+          z-index: 0; /* Behind other content */
+        }
+    </style>
+</head>
+<body>
+
+<div class="night"></div>
+
+<div class="months-container">
+  <h1 style="color: var(--pink); font-family: Times New Roman;">Months with you so far this year &lt;33</h1>
+  <!-- Placeholder image -->
+  <div class="image-container">
+    <img src="https://dthezntil550i.cloudfront.net/hs/latest/hs2211241754220070013344350/1280_960/a1b5ae9a-8106-49a6-9c09-60dd28a510c4.png" alt="Placeholder Image">
+  </div>
+  <div class="time-duration" style="text-align: center; margin-top: 20px; color: #FF69B4;">
+    <p>we've been together for this long:</p>
+    <p id="time-difference"></p>
+  </div>
+  
+  <script>
+    // Function to calculate and update time difference
+    function updateTimer() {
+      const startDate = new Date('2021-09-23T01:00:00Z'); // September 23, 2021, 1 AM
+  
+      let diff = new Date() - startDate;
+  
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      diff -= days * (1000 * 60 * 60 * 24);
+  
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      diff -= hours * (1000 * 60 * 60);
+  
+      const minutes = Math.floor(diff / (1000 * 60));
+      diff -= minutes * (1000 * 60);
+  
+      const seconds = Math.floor(diff / 1000);
+  
+      document.getElementById('time-difference').innerText = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+    }
+  
+    // Update time difference initially
+    updateTimer();
+  
+    // Update time difference every second
+    setInterval(updateTimer, 1000);
+  </script>
+  
+  </body>
+  </html>
+
+  <!-- List of months with descriptions -->
+  <ul class="months-list">
+    <li onclick="showDescription('January')">January</li>
+    <li onclick="showDescription('February')">February</li>
+    <li onclick="showDescription('March')">March</li>
+    <li onclick="showDescription('April')">April</li>
+    <li onclick="showDescription('May')">May</li>
+    <li onclick="showDescription('June')">June</li>
+    <li onclick="showDescription('July')">July</li>
+    <li onclick="showDescription('August')">August</li>
+    <li onclick="showDescription('September')">September</li>
+    <li onclick="showDescription('October')">October</li>
+    <li onclick="showDescription('November')">November</li>
+    <li onclick="showDescription('December')">December</li>
+    <!-- Rest of the list items remain the same -->
+  </ul>
+
+  
+  <div id="January" class="description">
+    <p>We made it through another year, jagi. It was a long yet very fulfilling journey for us. All those rough roads, meaningful silence, fun moments, and more? I loved every bit of it. We've made it past 2 years already and we're about to finish another year together once more. I love you so much, baby. To more days, weeks, months, and years with you &lt;33</p>
+  </div>
+  <div id="February" class="description">
+    <p>This month held a lot of memories for us. It has both good and bad memories, but guess what? Those are part of our relationship and I love every part of it. I received my first crocheted flowers from you during this month &lt;33 Until now, I look at the flowers and smile. I just can't believe that Valentine's will be so much enjoyable knowing I have an amazing girlfriend to spend it with. I love you baby &lt;33</p>
+  </div>
+  <div id="March" class="description">
+    <p>There's nothing much that I can remember during this month other than our hectic research HAHAHAHA despite those busy times together, we still managed to make time for each other. Eating a pint of ice cream along with jollibee, I was so full HAHAHAHAHA. for me? that's very memorable</p>
+    </div>
+  </div id="April" class="description">
+  <p>We celebrated our monthsary while practicing for our mapeh dance. this was the day you and zyrah met, and you also tried learning the bike with my help. we may have gotten into a small argument that time, but zyrah's goofy personality sure helped us xD</p>
+</div>
+<div id="May" class="description">
+  <p>This was the time you traveled for the regionals. I was so proud of you the whole damn time. people would say "wow nakaabot s'yag regionals." and I'd be "YES UYAB KO NA! SHE'S AMAZING AS FUCK!" deep inside. I was and still am proud of all your achievments in life jagi. I really missed you during this time tho TwT. We also celebrated our prom during this month. you were drop dread gorgeous, baby. it was so hard not to stare at you THE WHOLE TIME. I wanted to kiss you everytime I can.</p>
+</div>
+<div id="June" class="description">
+  <p>our graduation!! after all those hardwork and sacrifices, we finally graduated. we've been through quite a journey as a couple who're still studying, and I'm so proud of us. things are just getting harder now that we've entered a different level but hey, we got this. we have each other</p>
+</div>
+<div id="July" class="description">
+  <p>didn't see each other due to summer break TT you went out with your family during this time because your dad was back here in the Philippines. we had fights bc of the sudden change of environment but we still made it. </p>
+</div>
+<div id="August" class="description">
+<p>classes are backkkk. unfortunately, we are now in different sections TT this didn't help as we had more struggles during this time. a lot of rough patches in our relationship and new obstacles. like always, we navigated our way through all of those and we're strong as ever. REULEI FOR THE WIN</p>
+</div>
+<div id="September" class="description">
+  <p>SECOND ANNIVERSARYYYYYY. after two years, we celebrated our two years together. two years filled tears and smiles. two years with ups and downs. two years filled with love and pain. I can never thank you enough for being able to go this far with me. let's continue growing together alright, jagi? I love you</p>
+</div>
+<div id="October" class="description">
+  <p>October was filled with a lot of fights. a lot of  "kapoy na". it was filled with a lot of pain. I never regretted a single second of those moments as I know it got us to where we are now. it reminded me further that despite the storm, our love will always be safe as long as we're trying together. that alone is more than enough to destroy the bad thoughts in both our minds</p>
+</div>
+<div id="November" class="description">
+  <p> movie date^^ we finally had a movie date HAHAHAHA and it was a couble date too! a very cute moment that I'll forever cherish. november is coming to an end and still, we're together. still fighting all the problems that comes our way. us against the problem always, hun</p>
+</div>
+<div id="December" class="description">
+  <p> we're still about to write this chapter in our lives but I know we'll end the year with us looking back through all our progress. I love you so much, lei. I can't wait to spend forever with you no matter what forever may be. I love you baby. after all thsi time? always</p>
+</div>
+
+<script>
+  let currentMonth = null; // Track the currently open month
+  let isAnimating = false; // Track if animation is in progress
+
+  // Function to display the description of the clicked month
+  function showDescription(month) {
+    if (isAnimating) return; // If currently animating, exit
+
+    const selectedMonth = document.getElementById(month);
+    const descriptions = document.getElementsByClassName('description');
+
+    if (currentMonth === month) {
+      // Clicked on the same month, close it
+      isAnimating = true;
+      selectedMonth.style.opacity = '0';
+      selectedMonth.style.transform = 'perspective(600px) rotateX(-90deg)'; // Rotate to hide
+      selectedMonth.addEventListener('transitionend', function() {
+        selectedMonth.style.display = 'none';
+        isAnimating = false;
+      }, { once: true });
+      currentMonth = null;
+    } else {
+      if (currentMonth) {
+        // Close the previously open month
+        const prevMonth = document.getElementById(currentMonth);
+        isAnimating = true;
+        prevMonth.style.opacity = '0';
+        prevMonth.style.transform = 'perspective(600px) rotateX(-90deg)'; // Rotate to hide
+        prevMonth.addEventListener('transitionend', function() {
+          prevMonth.style.display = 'none';
+          isAnimating = false;
+        }, { once: true });
+      }
+
+      // Open the clicked month
+      isAnimating = true;
+      selectedMonth.style.display = 'block';
+      setTimeout(() => {
+        selectedMonth.style.opacity = '1';
+        selectedMonth.style.transform = 'perspective(600px) rotateX(0)'; // Rotate to show
+        isAnimating = false;
+      }, 0); // Set timeout to show with transition effect
+      currentMonth = month;
+    }
+    
+  }
+</script>
+
+</body>
+</html>
